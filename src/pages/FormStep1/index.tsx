@@ -1,9 +1,12 @@
 import { Container } from './styles'
+import { Theme } from '../../components/Theme'
 
 export function FormStep1() {
   return(
-    <Container>
-      Passo 1
-    </Container>
+    <Theme>
+      <Container>
+        Passo 1
+      </Container>
+    </Theme>
   )
 }
