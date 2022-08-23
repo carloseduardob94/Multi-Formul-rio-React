@@ -4,11 +4,13 @@ type Props = {
   title: string
   description: string
   icon: string
+  selected: boolean
+  onClick: () => void
 }
 
-export function SelectOptions({title, description, icon}: Props){
+export function SelectOptions({title, description, icon, selected, onClick}: Props){
   return(
-    <Container>
+    <Container selected={selected} onClick={onClick}>
       <Icon>{icon}</Icon>
 
       <Info>
