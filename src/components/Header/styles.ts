@@ -13,5 +13,6 @@ export const Container = styled.header`
   > p {
     font-size: 14px;
     color: #b8b8d4;
+    margin-top: 10px;
   }
 `
