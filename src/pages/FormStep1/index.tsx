@@ -1,16 +1,30 @@
 import { useNavigate } from 'react-router-dom'
 import { Container } from './styles'
+import { useForm, FormActions } from '../../contexts/FormContext'
 import { Theme } from '../../components/Theme'
-
-
-
+import { ChangeEvent, useEffect } from 'react'
 
 
 export function FormStep1() {
   const navigateTo = useNavigate()
+  const { state, dispatch } = useForm()
+
+  useEffect(() => {
+    dispatch({
+      type: FormActions.setCurrentStep,
+      payload: 1
+    })
+  }, [])
 
   const handleNextStep = () => {
     navigateTo('/step2')
+  }
+
+  const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
+    dispatch({
+      type: FormActions.setName,
+      payload: e.target.value
+    })
   }
 
   return(
@@ -26,9 +40,11 @@ export function FormStep1() {
           <input
             type ="text" 
             autoFocus
+            value={state.name}
+            onChange={handleNameChange}
           />
         </label>
-        <button onClick={handleNextStep} >Próximo</button>
+        <button onClick={handleNextStep}>Próximo</button>
       </Container>
     </Theme>
   )
