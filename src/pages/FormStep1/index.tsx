@@ -17,7 +17,11 @@ export function FormStep1() {
   }, [])
 
   const handleNextStep = () => {
-    navigateTo('/step2')
+    if(state.name !== ''){
+      navigateTo('/step2')
+    }else{
+      alert("Preencha os dados")
+    }
   }
 
   const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
