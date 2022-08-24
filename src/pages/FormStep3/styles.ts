@@ -21,6 +21,8 @@ export const Container = styled.div`
 
   label{
     font-size: 13px;
+    display: block;
+    margin-bottom: 20px;
 
     > input{
       display: block;
@@ -35,8 +37,9 @@ export const Container = styled.div`
       font-size: 15px;
       background-color: #02044a;
     }
-  }
 
+  }
+  
   button{
     background-color: #25cd89;
     color: #fff;
@@ -48,7 +51,6 @@ export const Container = styled.div`
     cursor: pointer;
     margin-top: 30px;
   }
-
   .backbutton {
     font-size: 16px;
     text-decoration: none;
@@ -56,4 +58,3 @@ export const Container = styled.div`
     color: #b8b8d4;
   }
 `
-

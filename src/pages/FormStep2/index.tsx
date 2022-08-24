@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { Container } from './styles'
 import { useForm, FormActions } from '../../contexts/FormContext'
 import { Theme } from '../../components/Theme'
@@ -11,10 +11,14 @@ export function FormStep2() {
   const { state, dispatch } = useForm()
 
   useEffect(() => {
-    dispatch({
-      type: FormActions.setCurrentStep,
-      payload: 2
-    })
+    if(state.name === ''){
+      navigateTo('/')
+    }else{
+      dispatch({
+        type: FormActions.setCurrentStep,
+        payload: 2
+      })
+    }
   }, [])
 
   const handleNextStep = () => {
@@ -37,8 +41,8 @@ export function FormStep2() {
     <Theme>
       <Container>
         <p>Passo 2/3</p>
-        <h1>Vamos começar com seu nome</h1>
-        <p>Preenche o campo abaixo com o seu nome completo.</p>
+        <h1>{state.name}, o que melhor descreve você?</h1>
+        <p>Escolha a opção que melhor condiz com seu estado atual.</p>
 
         <hr/>
 
@@ -59,6 +63,8 @@ export function FormStep2() {
 
         />
 
+
+        <Link to="/" className="backbutton">Voltar</Link>
         <button onClick={handleNextStep}>Próximo</button>
       </Container>
     </Theme>
