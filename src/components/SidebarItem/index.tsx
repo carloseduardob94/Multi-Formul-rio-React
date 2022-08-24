@@ -1,6 +1,8 @@
 import { Container, Info, Title, Description, IconArea, Point } from './styles'
 import { Link } from 'react-router-dom'
-import { ReactComponent as ProfileIcon } from "../../svgs/profile.svg";
+import { ReactComponent as ProfileIcon } from "../../svgs/profile.svg"
+import { ReactComponent as BookIcon } from "../../svgs/book.svg"
+import { ReactComponent as MailIcon } from "../../svgs/mail.svg"
 
 
 type Props = {
@@ -8,9 +10,10 @@ type Props = {
   description: string;
   icon: string;
   path: string;
+  active: boolean;
 }
 
-export function SidebarItem({ title, description, icon, path }: Props) {
+export function SidebarItem({ title, description, icon, path, active }: Props) {
   return(
     <Container>
       <Link to={path}>
@@ -18,10 +21,18 @@ export function SidebarItem({ title, description, icon, path }: Props) {
           <Title>{title}</Title>
           <Description>{description}</Description>
         </Info>
-        <IconArea>
-          <ProfileIcon fill="white" width={24} height={24} />
+        <IconArea active={active}>
+          {icon === 'profile' &&
+            <ProfileIcon fill="white" width={24} height={24} />
+          }
+          {icon === 'book' &&
+            <BookIcon fill="white" width={24} height={24} />
+          }
+          {icon === 'mail' &&
+            <MailIcon fill="white" width={24} height={24} />
+          }
         </IconArea>
-        <Point></Point>
+        <Point active={active}></Point>
       </Link>
     </Container>
   )

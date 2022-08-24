@@ -2,12 +2,16 @@ import { Container, Area, Steps, Sidebar, Page } from './styles'
 import { ReactNode } from 'react'
 import { Header } from '../Header'
 import { SidebarItem } from '../SidebarItem'
+import { useForm } from '../../contexts/FormContext'
 
 type Props = {
   children: ReactNode
 }
 
 export function Theme({children}: Props) {
+  const { state } = useForm()
+
+
   return(
     <Container>
       <Area>
@@ -21,6 +25,7 @@ export function Theme({children}: Props) {
               description="Se identifique"
               icon="profile"
               path="/"
+              active={state.currentStep === 1}
             />
 
             <SidebarItem 
@@ -28,6 +33,8 @@ export function Theme({children}: Props) {
               description="Seu nível"
               icon="book"
               path="/step2"
+              active={state.currentStep === 2}
+              
             />
 
             <SidebarItem 
@@ -35,6 +42,8 @@ export function Theme({children}: Props) {
               description="Como te achar"
               icon="mail"
               path="/step3"
+              active={state.currentStep === 3}
+
             />
 
           </Sidebar>
