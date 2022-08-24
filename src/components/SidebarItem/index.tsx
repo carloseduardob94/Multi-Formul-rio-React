@@ -1,5 +1,6 @@
 import { Container, Info, Title, Description, IconArea, Point } from './styles'
 import { Link } from 'react-router-dom'
+import { ReactComponent as ProfileIcon } from "../../svgs/profile.svg";
 
 
 type Props = {
@@ -18,7 +19,7 @@ export function SidebarItem({ title, description, icon, path }: Props) {
           <Description>{description}</Description>
         </Info>
         <IconArea>
-
+          <ProfileIcon fill="white" width={24} height={24} />
         </IconArea>
         <Point></Point>
       </Link>

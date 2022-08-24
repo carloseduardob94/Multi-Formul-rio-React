@@ -5,8 +5,6 @@ import { Router } from './Router/router'
 import { FormProvider } from './contexts/FormContext'
 
 
-
-
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <Global />
